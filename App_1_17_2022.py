@@ -23,7 +23,7 @@ import streamlit as st
 import pickle
 
 st.title("Insurance Data")
-url = '/Users/liamsweeney/dat-11-15/App/Insurance Data/insurance_premiums.csv'
+url = 'https://raw.githubusercontent.com/LiamMerrill/insurance_data/main/insurance_premiums.csv'
 
 num_rows = st.sidebar.number_input('Select Number of Rows to Load', 
                                    min_value=1000,
