@@ -82,16 +82,37 @@ else:
    
     
     
-    bmi = st.sidebar.number_input("Body Mass Index (BMI)", min_value = 10,
+    age = st.sidebar.number_input("Body Mass Index (BMI)", min_value = 10,
                                         max_value = 200, step = 5, value = 20)
     
-                               
-    smoker = st.sidebar.selectbox("Smoker ?", 
+    bmi = st.sidebar.number_input("Body Mass Index (BMI)", min_value = 10,
+                                        max_value = 200, step = 5, value = 20)
+    children = st.sidebar.number_input("Body Mass Index (BMI)", min_value = 10,
+                                    max_value = 200, step = 5, value = 20)
+    region = st.sidebar.number_input("Body Mass Index (BMI)", min_value = 10,
+                                    max_value = 200, step = 5, value = 20)
+    count = st.sidebar.number_input("Body Mass Index (BMI)", min_value = 10,
+                                    max_value = 200, step = 5, value = 20)
+    sex_female = st.sidebar.number_input("Body Mass Index (BMI)", min_value = 10,
+                                    max_value = 200, step = 5, value = 20)
+    sex_male = st.sidebar.number_input("Body Mass Index (BMI)", min_value = 10,
+                                    max_value = 200, step = 5, value = 20)
+    smoker_no = st.sidebar.number_input("Body Mass Index (BMI)", min_value = 10,
+                                    max_value = 200, step = 5, value = 20)                           
+    smoker_yes = st.sidebar.selectbox("Smoker ?", 
                                        df['smoker'].unique().tolist())
     
     sample = {
+    'age': age,
     'bmi': bmi,
-    'smoker': smoker
+    'children': children,
+    'region': region,
+    'count': count,
+    'sex_female': sex_female,
+    'sex_male': sex_male,
+    'smoker_no': smoker_no,
+    'smoker_yes': smoker_yes
+    
     }
 
     sample = pd.DataFrame(sample, index = [0])
