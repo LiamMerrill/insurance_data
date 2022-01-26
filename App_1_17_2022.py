@@ -79,6 +79,12 @@ else:
     st.text("Choose Options to the Side to Explore the Model")
     model = load_model()
     
-    id_val = st.sidebar.selectbox("Choose age", 
+    age_id_val = st.sidebar.selectbox("Choose age", 
                                   df['age'].unique().tolist())
+    
+    sample = {'Age':age_id_val}
+    sample=pd.DataFrame(sample, index = [0])
+    prediction = model.predict(sample)[0]
+    
+    st.title(f"Predicted Cost:{int(prediction)}")
   
