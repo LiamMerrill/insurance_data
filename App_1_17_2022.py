@@ -79,12 +79,25 @@ else:
     st.text("Choose Options to the Side to Explore the Model")
     model = load_model()
     
-    age_id_val = st.sidebar.selectbox("Choose age", 
-                                  df['age'].unique().tolist())
+   
+    age = st.sidebar.number_input("Customer Age", min_value = 0,
+                                        max_value = 100, step = 2, value = 40)
     
-    sample = {'Age':age_id_val}
-    sample=pd.DataFrame(sample, index = [0])
+    bmi = st.sidebar.number_input("Body Mass Index (BMI)", min_value = 10,
+                                        max_value = 200, step = 5, value = 20)
+    
+                               
+    smoker = st.sidebar.selectbox("Smoker ?", 
+                                       df['smoker'].unique().tolist())
+    
+    sample = {
+    'age': age,
+    'bmi': bmi,
+    'smoker': smoker
+    }
+
+    sample = pd.DataFrame(sample, index = [0])
     prediction = model.predict(sample)[0]
     
-    st.title("Predicted Cost")
+    st.title(f"Predicted Charges: {int(prediction)}")
   
