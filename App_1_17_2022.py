@@ -98,7 +98,8 @@ else:
     
     smoker_no = st.sidebar.number_input("non smoker")
                            
-    smoker_yes = st.sidebar.selectbox("smoker")
+    smoker_yes = st.sidebar.selectbox("smoker", 
+                                       df['smoker'].unique().tolist())
     
     sample = {
     'age': age,
