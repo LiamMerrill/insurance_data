@@ -80,8 +80,7 @@ else:
     model = load_model()
     
    
-    age = st.sidebar.number_input("Customer Age", min_value = 0,
-                                        max_value = 100, step = 2, value = 40)
+    
     
     bmi = st.sidebar.number_input("Body Mass Index (BMI)", min_value = 10,
                                         max_value = 200, step = 5, value = 20)
@@ -91,7 +90,6 @@ else:
                                        df['smoker'].unique().tolist())
     
     sample = {
-    'age': age,
     'bmi': bmi,
     'smoker': smoker
     }
