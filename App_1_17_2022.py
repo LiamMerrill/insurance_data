@@ -114,7 +114,7 @@ else:
     
     }
 
-    sample = pd.DataFrame(sample, index = [0])
+    sample = pd.DataFrame(sample)
     prediction = model.predict(sample)[0]
     
     st.title("Predicted Charges")
