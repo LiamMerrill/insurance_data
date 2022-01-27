@@ -82,19 +82,19 @@ else:
    
     
     
-    age = st.sidebar.number_input("Age")
+    #age = st.sidebar.number_input("Age")
     
     bmi = st.sidebar.number_input("Body Mass Index (BMI)", min_value = 10,
                                         max_value = 200, step = 5, value = 20)
-    children = st.sidebar.number_input("children")
+    #children = st.sidebar.number_input("children")
                             
-    region = st.sidebar.number_input("region")
+    #region = st.sidebar.number_input("region")
     
-    count = st.sidebar.number_input("count")
+    #count = st.sidebar.number_input("count")
     
-    sex_female = st.sidebar.number_input("female")
+    #sex_female = st.sidebar.number_input("female")
     
-    sex_male = st.sidebar.number_input("male")
+    #sex_male = st.sidebar.number_input("male")
     
     smoker_no = st.sidebar.number_input("non smoker")
                            
@@ -102,13 +102,13 @@ else:
                                        df['smoker'].unique().tolist())
     
     sample = {
-    'age': age,
+    #'age': age,
     'bmi': bmi,
-    'children': children,
-    'region': region,
-    'count': count,
-    'sex_female': sex_female,
-    'sex_male': sex_male,
+    #'children': children,
+    #'region': region,
+    #'count': count,
+    #'sex_female': sex_female,
+    #'sex_male': sex_male,
     'smoker_no': smoker_no,
     'smoker_yes': smoker_yes
     
