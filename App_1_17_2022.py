@@ -117,5 +117,5 @@ else:
     sample = pd.DataFrame(sample, index = [0])
     prediction = model.predict(sample)[0]
     
-    st.title("Predicted Charges")
+    st.title("Predicted Charges: {int(prediction)}")
   
