@@ -23,6 +23,9 @@ import streamlit as st
 import pickle
 
 st.title("Insurance Data")
+st.subheader('An App by Liam Sweeney') 
+st.write(('This app uses a public data set to visualize the cost of insuring various individuals, according to characteristics such as weight, sex, smoking status, and region, among others,' 'Users can toggle between area graphs which plot individuals in clusters, and bar graphs which aggregate values'))
+ 
 url = 'https://raw.githubusercontent.com/LiamMerrill/insurance_data/main/insurance_premiums.csv'
 
 num_rows = st.sidebar.number_input('Select Number of Rows to Load', 
