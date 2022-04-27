@@ -30,7 +30,7 @@ num_rows = st.sidebar.number_input('Select Number of Rows to Load',
                                    max_value=50000,
                                    step=1000)
 
-section = st.sidebar.radio('Choose Application Section', ['Data Explorer','Model Explorer'])
+section = st.sidebar.radio('Choose Application Section', ['Data Explorer'])
 print(section)
 
 @st.cache
@@ -43,10 +43,10 @@ def create_grouping(x_axis, y_axis):
     grouping = df.groupby(x_axis)[y_axis].mean()
     return grouping
 
-def load_model():
-    with open('pipe.pkl', 'rb') as pickled_mod:
-        model = pickle.load(pickled_mod)
-    return model
+# def load_model():
+#     with open('pipe.pkl', 'rb') as pickled_mod:
+#         model = pickle.load(pickled_mod)
+#     return model
 
 df = load_data(num_rows)
 
@@ -60,13 +60,13 @@ if section == 'Data Explorer':
                                                                'bmi'])
     
     chart_type = st.sidebar.selectbox("Choose Your Chart Type", 
-                                      ['line', 'bar', 'area'])
+                                      ['area', 'bar'])
     
-    if chart_type == 'line':
-        grouping = create_grouping(x_axis, y_axis)
-        st.line_chart(grouping)
+    #if chart_type == 'line':
+     #   grouping = create_grouping(x_axis, y_axis)
+      #  st.line_chart(grouping)
         
-    elif chart_type == 'bar':
+    if chart_type == 'bar':
         grouping = create_grouping(x_axis, y_axis)
         st.bar_chart(grouping)
     elif chart_type == 'area':
@@ -76,25 +76,25 @@ if section == 'Data Explorer':
     st.write(df)
     
 else:
-    st.text("Choose Options to the Side to Explore the Model")
-    model = load_model()
+    #st.text("Choose Options to the Side to Explore the Model")
+    #model = load_model()
     
    
     
     
-    #age = st.sidebar.number_input("Age")
+    age = st.sidebar.number_input("Age")
     
     bmi = st.sidebar.number_input("Body Mass Index (BMI)", min_value = 10,
                                         max_value = 200, step = 5, value = 20)
-    #children = st.sidebar.number_input("children")
+    children = st.sidebar.number_input("children")
                             
-    #region = st.sidebar.number_input("region")
+    region = st.sidebar.number_input("region")
     
-    #count = st.sidebar.number_input("count")
+    count = st.sidebar.number_input("count")
     
-    #sex_female = st.sidebar.number_input("female")
+    sex_female = st.sidebar.number_input("female")
     
-    #sex_male = st.sidebar.number_input("male")
+    sex_male = st.sidebar.number_input("male")
     
     smoker_no = st.sidebar.number_input("non smoker")
                            
@@ -102,20 +102,20 @@ else:
                                        df['smoker'].unique().tolist())
     
     sample = {
-    #'age': age,
+    'age': age,
     'bmi': bmi,
-    #'children': children,
-    #'region': region,
-    #'count': count,
-    #'sex_female': sex_female,
-    #'sex_male': sex_male,
+    'children': children,
+    'region': region,
+    'count': count,
+    'sex_female': sex_female,
+    'sex_male': sex_male,
     'smoker_no': smoker_no,
     'smoker_yes': smoker_yes
     
     }
 
     sample = pd.DataFrame(sample, index = [0])
-    prediction = model.predict(sample)[0]
+   # prediction = model.predict(sample)[0]
     
-    st.title("Predicted Charges: {int(prediction)}")
+   # st.title("Predicted Charges: {int(prediction)}")
   
